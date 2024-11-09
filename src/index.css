@@ -1,0 +1,79 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-color: #b6cacc;
+    overflow: hidden;
+    overflow-y: scroll;
+    font-family:Arial, Helvetica, sans-serif;
+}
+::-webkit-scrollbar{
+    width: 10px;
+}
+::-webkit-scrollbar-thumb{
+    background-color: #000;
+    border-radius: 30px;
+    display: hidden;
+}
+::-webkit-slider-track:hover ::-webkit-scrollbar-thumb{
+    display: block;
+}
+::-webkit-scrollbar-track{
+    border-radius: 30px;
+    background: linear-gradient(180deg, #a8e6a8 30%, #364d4a 100%)
+}
+a{
+    text-decoration: none;
+}
+.link_underline{
+    position: relative;
+}
+
+.link_underline::before{
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -10px;
+    width: 90%;
+    height: 2px;
+    background: linear-gradient(90deg, #373f3e 30%, #798e8a 100%);
+    transform-origin: center;
+    transform: translate(-50%, 0) scaleX(0);
+    transition: transform 0.6s ease-in-out;
+}
+.link_underline:hover::before{
+    transform: translate(-50%, 0) scaleX(1);
+}
+
+
+input:focus, textarea:focus {
+    outline: none;
+}
+ 
+label span{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background-color: #b6cacc;
+    transform-origin: bottom right;
+    transform: scaleX(0);
+    transition: transform 0.5s ease;
+}
+input:focus ~ span, textarea:focus ~ span {
+    transform-origin: bottom left;
+    transform: scaleX(1);
+}
+.circle{
+    clip-path: ellipse(81.5% 60% at 99% 0%);
+}
+.gradient_1{
+    background: rgb(255,255,255);
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0) 50%, rgb(255, 255, 255) 100%);
+}
